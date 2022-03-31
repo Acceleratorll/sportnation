@@ -5,14 +5,10 @@
     function tambahData($connect, $kota_id, $nama_kota) {
         $sql = 
             "INSERT INTO kota
-             VALUES ($kota_id, $nama_kota);";
+             VALUES ('$kota_id', '$nama_kota');";
         $result = mysqli_query($connect, $sql);
-    }
 
-    function checkTambahData() {
-        if($total == $total + 1) {
-            alertTambahData();
-        }
+        alertTambahData();
     }
 
     function alertTambahData() {
@@ -32,8 +28,5 @@
     echo "<br>";
 
     //tambah data
-    tambahData($connect, "03K", "Batu");
-
-    //check apabila data bertambah dan alert
-    checkTambahData();
+    tambahData($connect ,"03K", "Batu");
 ?>
