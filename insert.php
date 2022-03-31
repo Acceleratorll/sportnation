@@ -18,15 +18,23 @@
             </script>';
     }
 
-    //menghitung jumlah baris awal
-    $sql = "SELECT count(1) from kota";
-    $result = mysqli_query($connect, $sql);
-    $row = mysqli_fetch_array($result);
-    $total = $row[0];
+    function hitungJumlahData($connect) {
+        $sql = "SELECT count(1) from kota";
+        $result = mysqli_query($connect, $sql);
+        $row = mysqli_fetch_array($result);
+        return $total = $row[0];
+    }
 
-    echo "$total";
+    //==============================================================
+
+    //menghitung jumlah baris awal
+    echo "Jumlah data saat ini: " . hitungJumlahData($connect);
     echo "<br>";
 
     //tambah data
     tambahData($connect ,"03K", "Batu");
+
+    //menghitung jumlah baris awal
+    echo "Jumlah data setelah ditambahkan: " . hitungJumlahData($connect);
+    echo "<br>";
 ?>
